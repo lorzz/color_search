@@ -1,0 +1,47 @@
+[
+	{
+		"name": "Lancelot",
+		"hex_val1": "#16DBAA",
+		"hex_val2": "#4D5C6B",
+		"hex_val3": "#19334F",
+		"hex_val4": "#69DB4D",
+		"hex_val5": "#994534"
+	},
+	
+	{
+		"name": "APC",
+		"hex_val1": "#7A908E",
+		"hex_val2": "#9385B8",
+		"hex_val3": "#F99E0F",
+		"hex_val4": "#B6D95B",
+		"hex_val5": "#BADDDF"
+	},
+	
+	{
+		"name": "Pen Pals",
+		"hex_val1": "#CCBEDB",
+		"hex_val2": "#7E7587",
+		"hex_val3": "#755C62",
+		"hex_val4": "#855254",
+		"hex_val5": "#E9DD92"
+	},
+	
+	{
+		"name": "Pulp Fiction",
+		"hex_val1": "#D7282D",
+		"hex_val2": "#B53237",
+		"hex_val3": "#9BAE31",
+		"hex_val4": "#C6B038",
+		"hex_val5": "#B59D83"
+	},
+	
+	{
+		"name": "Today",
+		"hex_val1": "#17BBE7",
+		"hex_val2": "#EDEA14",
+		"hex_val3": "#EB6D11",
+		"hex_val4": "#478095",
+		"hex_val5": "#99D021"
+	}	
+	
+]

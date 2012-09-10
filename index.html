@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+		<title>Pick A Color</title>
+		<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="farb/farbtastic.css" rel="stylesheet" type="text/css">
+		<link href="css/index.css" rel="stylesheet" type="text/css">
+		<link rel="shortcut icon" href="favicon.ico" >
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/angular-1.0.1.js"></script>
+		<script type="text/javascript" src="farb/farbtastic.js"></script>
+		<script type="text/javascript" src="myjs/lorz.js"></script>
+
+		<script>
+			$(document).ready(function() {
+				$('#Cpicker').farbtastic('#color');
+				
+				//function() {return this.textContent;}
+			});
+
+		</script>
+	</head>
+
+	<body>
+		<div class="row-fluid">
+			<div class="span12 offset1">
+				<div class="page-header">
+					<h1>Pick a Color!</h1>
+					<p>
+						Choose a color from the 'Colors Table' or with the help of 'Color Picker'.</br>
+						Then pick a Palette, and the closest available color to the chosen one will be displayed (asap :) ).
+					</p>
+				</div>
+<div class="row">
+<div class="span5"> 
+<button class="btn btn-primary" data-toggle="button" onclick="$('#colorstable_container').slideToggle()">Colors Table</button>
+<div id="colorstable_container" ng-controller="ColorListCtrl">
+	<form>
+	<div class="form item" style="margin-top: 15px">
+		<label for="query">Type a color name or an #hex value:</label>
+		<input type="text" id="query" name="query" class="search-query" ng-model="query"/>
+	</div>
+	</form>
+				<table class="table table-hover table-condensed table-bordered colorstable">
+					<thead>
+						<tr>
+							<th>Color Name</th>
+							<th>Hex Value</th>
+							<th>Color</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="color in colors | filter:query" class="color_row" value="{{color.hex_val}}" onclick="getColor(this)">
+							<td>{{color.name}}</td>
+							<td>{{color.hex_val}}</td>
+							<td style="width:100px; background-color:{{color.hex_val}}"></td>
+						</tr>
+						
+					</tbody>
+				</table>
+</div>
+</div>
+
+<div class="span4 offset1">
+	<div>
+		<p class="lead">Color Picker</p>
+				<form>
+					<div>
+						<label for="color">Color:</label>
+						<input type="text" id="color" name="color" value="#abcdef" onfocus="pickColor(this.value)" onchange="pickColor(this.value)"/>
+					</div>
+				</form>
+				<div id="Cpicker" onmouseup="pickColor($('#color').attr('value'))"></div>
+</div>
+
+	</div>
+</div>
+
+<div class="row second">
+<div class="span5">
+<button class="btn btn-primary" data-toggle="button" onclick="$('#palettestable_container').slideToggle()">Palettes Table</button>
+<div id="palettestable_container" ng-controller="PaletteListCtrl">
+				<table class="table  table-condensed table-bordered palettestable">
+					<thead>
+						<tr>
+							<th>Palette Name</th>
+							<th>Colors</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="palette in palettes" name="{{palette.name}}" class="palette_row" onclick="getPalette(this)">
+								<td name="{{palette.name}}">{{palette.name}}</td>
+								<td value="{{palette.hex_val1}}" style="width:100px; background-color:{{palette.hex_val1}}" onmouseover="$(this).tooltip({placement: 'top', title: $(this).css('background-color')})"></td>
+								<td value="{{palette.hex_val2}}" style="width:100px; background-color:{{palette.hex_val2}}" onmouseover="$(this).tooltip({placement: 'top', title: $(this).css('background-color')})"></td>
+								<td value="{{palette.hex_val3}}" style="width:100px; background-color:{{palette.hex_val3}}" onmouseover="$(this).tooltip({placement: 'top', title: $(this).css('background-color')})"></td>
+								<td value="{{palette.hex_val4}}" style="width:100px; background-color:{{palette.hex_val4}}" onmouseover="$(this).tooltip({placement: 'top', title: $(this).css('background-color')})"></td>
+								<td value="{{palette.hex_val5}}" style="width:100px; background-color:{{palette.hex_val5}}" onmouseover="$(this).tooltip({placement: 'top', title: $(this).css('background-color')})"></td>		
+						</tr>
+						
+					</tbody>
+				</table>
+		</div>
+	</div>
+	<div id="answer" class="span5"></div>
+	</div>
+</div>
+</div>
+
+	</body>
+</html>
